@@ -1,0 +1,37 @@
+package application;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.Student;
+
+public class StudentExercise {
+
+	public static void main(String[] args) {
+
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+
+		Student stud = new Student();
+
+		System.out.println("Name student: ");
+		stud.name = sc.nextLine();
+
+		System.out.println("Digite as 3 Notas: ");
+		stud.n1 = sc.nextDouble();
+		stud.n2 = sc.nextDouble();
+		stud.n3 = sc.nextDouble();
+		
+		System.out.printf("Nota final: %.2f\n", stud.notaFinal());
+		
+		if(stud.contagemNota() < 60.0) {
+			System.out.println("Reprovado");
+			System.out.printf("Faltam %.2f Ponto(s)\n", stud.contagemNota());
+		} else {
+			System.out.println("Aprovado");
+		}
+
+		sc.close();
+	}
+
+}
